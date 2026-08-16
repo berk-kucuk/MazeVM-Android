@@ -1,0 +1,448 @@
+{
+  "schema": 2,
+  "updated": "2026-08-15",
+  "distros": [
+    {
+      "id": "kali",
+      "name": "Kali Linux",
+      "tagline": "Debian-based distribution for penetration testing and security work.",
+      "homepage": "https://www.kali.org/",
+      "releases": [
+        {
+          "id": "2026.2",
+          "name": "2026.2",
+          "note": "Latest",
+          "editions": [
+            {
+              "id": "kali-2026.2-netinst",
+              "edition": "Netinst installer",
+              "arch": "aarch64",
+              "url": "https://cdimage.kali.org/kali-2026.2/kali-linux-2026.2-installer-netinst-arm64.iso",
+              "downloadBytes": 748990464,
+              "installedBytes": 15032385536,
+              "bootStyle": "iso_installer",
+              "checksum": {
+                "algorithm": "sha256",
+                "value": "8ca1bdd6a85f37e380eca84c780256b6e634fc768426396f51967ec3be006ed1"
+              },
+              "recommendedRamMb": 4096,
+              "recommendedDiskGb": 32,
+              "recommendedCpus": 4,
+              "notes": "Small download that fetches packages during setup, so it needs working networking in the VM. The installer asks which desktop and which tool set to install, so the choice is made there rather than here."
+            },
+            {
+              "id": "kali-2026.2-installer",
+              "edition": "Offline installer",
+              "desktop": "Xfce",
+              "arch": "aarch64",
+              "url": "https://cdimage.kali.org/kali-2026.2/kali-linux-2026.2-installer-arm64.iso",
+              "downloadBytes": 3972624384,
+              "installedBytes": 21474836480,
+              "bootStyle": "iso_installer",
+              "checksum": {
+                "algorithm": "sha256",
+                "value": "b9a08050ee522fbee7cac703b1bc48178f79eb974c962d4ed9dc1ccfdfa77fb6"
+              },
+              "recommendedRamMb": 4096,
+              "recommendedDiskGb": 48,
+              "recommendedCpus": 4,
+              "notes": "Carries the default Xfce desktop and tool set on the disc, so it installs without a network. Nearly 4 GB to download and it wants a large virtual disk."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "archlinux",
+      "name": "Arch Linux",
+      "tagline": "Rolling release. Installed from archboot, the project's own aarch64 installer.",
+      "homepage": "https://archlinux.org/",
+      "releases": [
+        {
+          "id": "archboot-2026.08",
+          "name": "2026.08",
+          "note": "Latest installer",
+          "editions": [
+            {
+              "id": "archlinux-archboot-2026.08-latest",
+              "edition": "Network installer",
+              "arch": "aarch64",
+              "url": "https://release.archboot.com/aarch64/2026.08/iso/archboot-2026.08.14-02.07-7.1.8-1-aarch64-ARCH-latest-aarch64.iso",
+              "downloadBytes": 304011264,
+              "installedBytes": 12884901888,
+              "bootStyle": "iso_installer",
+              "checksum": {
+                "algorithm": "sha256",
+                "value": "a5bcc6b06693cab9fa0281471291431eefbcb50d69ce693a9e28c40925f5ffba"
+              },
+              "needsUefi": true,
+              "defaultUser": "root",
+              "recommendedRamMb": 3072,
+              "recommendedDiskGb": 20,
+              "recommendedCpus": 4,
+              "notes": "Boots straight to the archboot installer under UEFI and pulls current packages during setup, so the VM needs working networking. This is a real Arch install onto the virtual disk, not a root filesystem you have to unpack by hand. Log in as root; run setup to begin."
+            },
+            {
+              "id": "archlinux-archboot-2026.08-local",
+              "edition": "Offline installer",
+              "arch": "aarch64",
+              "url": "https://release.archboot.com/aarch64/2026.08/iso/archboot-2026.08.14-02.07-7.1.8-1-aarch64-ARCH-local-aarch64.iso",
+              "downloadBytes": 1030258688,
+              "installedBytes": 12884901888,
+              "bootStyle": "iso_installer",
+              "checksum": {
+                "algorithm": "sha256",
+                "value": "9d731de33fc6e03885bb69d0e094f1298f0172fb7e4e64a5e41ac459c1f42978"
+              },
+              "needsUefi": true,
+              "defaultUser": "root",
+              "recommendedRamMb": 4096,
+              "recommendedDiskGb": 20,
+              "recommendedCpus": 4,
+              "notes": "Carries the packages on the disc, so the install needs no network and finishes far faster under emulation. A gigabyte to download, but the install itself is the part that is slow on a phone."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tumbleweed",
+      "name": "openSUSE Tumbleweed",
+      "tagline": "Rolling release with a ready-made disk image. Boots straight in, no installer.",
+      "homepage": "https://get.opensuse.org/tumbleweed/",
+      "releases": [
+        {
+          "id": "snapshot-20260806",
+          "name": "Snapshot 20260806",
+          "note": "Rolling",
+          "editions": [
+            {
+              "id": "tumbleweed-minimal-cloud-20260806",
+              "edition": "Minimal VM",
+              "arch": "aarch64",
+              "url": "https://download.opensuse.org/ports/aarch64/tumbleweed/appliances/openSUSE-Tumbleweed-Minimal-VM.aarch64-1.0.0-Cloud-Snapshot20260806.qcow2",
+              "downloadBytes": 288490496,
+              "installedBytes": 8589934592,
+              "bootStyle": "cloud_image",
+              "diskFormat": "qcow2",
+              "checksum": {
+                "algorithm": "sha256",
+                "value": "2b609ad876efc924e8ee2bd8eb574a991e2be2799a1c14e142ec2b2a1c803c2b"
+              },
+              "needsUefi": true,
+              "defaultUser": "opensuse",
+              "recommendedRamMb": 2048,
+              "recommendedDiskGb": 16,
+              "recommendedCpus": 2,
+              "notes": "A rolling distribution that needs no installer at all: the disk image is already built, so it boots to a login in a minute or two. MazeVM generates a cloud-init seed so the account has a password you choose. Worth reaching for if you want current packages without sitting through an install."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fedora",
+      "name": "Fedora",
+      "tagline": "Fast-moving distribution that publishes a ready-to-run disk image per desktop.",
+      "homepage": "https://fedoraproject.org/",
+      "releases": [
+        {
+          "id": "43",
+          "name": "43",
+          "note": "Latest",
+          "editions": [
+            {
+              "id": "fedora-43-cloud",
+              "edition": "Cloud Base",
+              "arch": "aarch64",
+              "url": "https://dl.fedoraproject.org/pub/fedora/linux/releases/43/Cloud/aarch64/images/Fedora-Cloud-Base-Generic-43-1.6.aarch64.qcow2",
+              "downloadBytes": 544997376,
+              "installedBytes": 5368709120,
+              "bootStyle": "cloud_image",
+              "diskFormat": "qcow2",
+              "checksum": {
+                "algorithm": "sha256",
+                "value": "66031aea9ec61e6d0d5bba12b9454e80ca94e8a79c913d37ded4c60311705b8b"
+              },
+              "defaultUser": "fedora",
+              "recommendedRamMb": 2048,
+              "recommendedDiskGb": 16,
+              "recommendedCpus": 2,
+              "notes": "Console only, boots in a minute or two and is the quickest Fedora to get a shell on. MazeVM generates a cloud-init seed so the account has a password you choose."
+            },
+            {
+              "id": "fedora-43-minimal",
+              "edition": "Minimal",
+              "arch": "aarch64",
+              "url": "https://dl.fedoraproject.org/pub/fedora/linux/releases/43/Spins/aarch64/images/Fedora-Minimal-43-1.6.aarch64.raw.xz",
+              "downloadBytes": 724749868,
+              "installedBytes": 6442450944,
+              "archive": "xz",
+              "bootStyle": "disk_image",
+              "diskFormat": "raw",
+              "checksum": {
+                "algorithm": "sha256",
+                "value": "5fa1ee96b14fdae34c01f7ba65fffdbe8a3b99c4e3edaa2e68dc3935fd019d39"
+              },
+              "recommendedRamMb": 2048,
+              "recommendedDiskGb": 16,
+              "recommendedCpus": 2,
+              "notes": "A prepared console-only disk image. First boot runs the initial setup, where you create the user account."
+            },
+            {
+              "id": "fedora-43-workstation",
+              "edition": "Desktop",
+              "desktop": "GNOME",
+              "arch": "aarch64",
+              "url": "https://dl.fedoraproject.org/pub/fedora/linux/releases/43/Workstation/aarch64/images/Fedora-Workstation-Disk-43-1.6.aarch64.raw.xz",
+              "downloadBytes": 2996817112,
+              "installedBytes": 16106127360,
+              "archive": "xz",
+              "bootStyle": "disk_image",
+              "diskFormat": "raw",
+              "checksum": {
+                "algorithm": "sha256",
+                "value": "5a1c07e6852b8c8ed2a94db006c5568cb8d7f805e9b3146faadfc7974fb95a3a"
+              },
+              "recommendedRamMb": 4096,
+              "recommendedDiskGb": 24,
+              "recommendedCpus": 4,
+              "notes": "GNOME is the heaviest desktop here and leans on GPU acceleration the emulator cannot provide. Expect it to be slow; Xfce or LXQt are far more usable under emulation."
+            },
+            {
+              "id": "fedora-43-xfce",
+              "edition": "Desktop",
+              "desktop": "Xfce",
+              "arch": "aarch64",
+              "url": "https://dl.fedoraproject.org/pub/fedora/linux/releases/43/Spins/aarch64/images/Fedora-Xfce-Disk-43-1.6.aarch64.raw.xz",
+              "downloadBytes": 2949132984,
+              "installedBytes": 16106127360,
+              "archive": "xz",
+              "bootStyle": "disk_image",
+              "diskFormat": "raw",
+              "checksum": {
+                "algorithm": "sha256",
+                "value": "e652c6b8a311753ebd42f376a6e6e90b6ce3e15fc470ed2e0f6b5ce3deb25a7f"
+              },
+              "recommendedRamMb": 3072,
+              "recommendedDiskGb": 24,
+              "recommendedCpus": 4,
+              "notes": "The best balance of a full desktop against what software emulation can drive."
+            },
+            {
+              "id": "fedora-43-lxqt",
+              "edition": "Desktop",
+              "desktop": "LXQt",
+              "arch": "aarch64",
+              "url": "https://dl.fedoraproject.org/pub/fedora/linux/releases/43/Spins/aarch64/images/Fedora-LXQt-Disk-43-1.6.aarch64.raw.xz",
+              "downloadBytes": 2456681116,
+              "installedBytes": 14495514624,
+              "archive": "xz",
+              "bootStyle": "disk_image",
+              "diskFormat": "raw",
+              "checksum": {
+                "algorithm": "sha256",
+                "value": "0e49f9d68b9a03b7598d8f975a93c750e6a7092dd5ffd03aae2dfa28094647ce"
+              },
+              "recommendedRamMb": 2048,
+              "recommendedDiskGb": 20,
+              "recommendedCpus": 2,
+              "notes": "The lightest desktop on offer. Pick this one if the machine feels sluggish."
+            },
+            {
+              "id": "fedora-43-cosmic",
+              "edition": "Desktop",
+              "desktop": "COSMIC",
+              "arch": "aarch64",
+              "url": "https://dl.fedoraproject.org/pub/fedora/linux/releases/43/Spins/aarch64/images/Fedora-COSMIC-Disk-43-1.6.aarch64.raw.xz",
+              "downloadBytes": 3288170752,
+              "installedBytes": 17179869184,
+              "archive": "xz",
+              "bootStyle": "disk_image",
+              "diskFormat": "raw",
+              "checksum": {
+                "algorithm": "sha256",
+                "value": "456080ed4813237365150b3786496430ab08f1f837cdf0292fc94f9189709d5d"
+              },
+              "recommendedRamMb": 4096,
+              "recommendedDiskGb": 24,
+              "recommendedCpus": 4,
+              "notes": "System76's Rust desktop. It expects hardware acceleration, so it is the slowest option here."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "debian",
+      "name": "Debian",
+      "tagline": "The conservative, stable base that Kali and Ubuntu are both built on.",
+      "homepage": "https://www.debian.org/",
+      "releases": [
+        {
+          "id": "13",
+          "name": "13 (trixie)",
+          "note": "Latest stable",
+          "editions": [
+            {
+              "id": "debian-13-cloud",
+              "edition": "Cloud image",
+              "arch": "aarch64",
+              "url": "https://cloud.debian.org/images/cloud/trixie/latest/debian-13-generic-arm64.qcow2",
+              "downloadBytes": 429195264,
+              "installedBytes": 3221225472,
+              "bootStyle": "cloud_image",
+              "diskFormat": "qcow2",
+              "checksum": {
+                "algorithm": "sha512",
+                "value": "60a2cc628f0dd114c25d70ce8388631c3f165f25c8932bc9f147987467680bcc39bda38c471c31d35056ae3eb089d22ab295583a7cbff323f21caabb467b0656"
+              },
+              "defaultUser": "debian",
+              "recommendedRamMb": 2048,
+              "recommendedDiskGb": 16,
+              "recommendedCpus": 2,
+              "notes": "Boots in well under a minute and is the easiest way to get a working shell. This URL always points at the newest trixie build, so the published checksum ages out when a new one lands."
+            }
+          ]
+        },
+        {
+          "id": "12",
+          "name": "12 (bookworm)",
+          "note": "Previous stable",
+          "editions": [
+            {
+              "id": "debian-12-cloud",
+              "edition": "Cloud image",
+              "arch": "aarch64",
+              "url": "https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-generic-arm64.qcow2",
+              "downloadBytes": 434044928,
+              "installedBytes": 3221225472,
+              "bootStyle": "cloud_image",
+              "diskFormat": "qcow2",
+              "checksum": {
+                "algorithm": "sha512",
+                "value": "8f872616a25ac6ca7c0d1b169b062931db51cd03fda4c8cbc74f228d045b186edd1c7d105933a7149c3377372cd0196d7659f07574d7bf6425b82b01df323026"
+              },
+              "defaultUser": "debian",
+              "recommendedRamMb": 2048,
+              "recommendedDiskGb": 16,
+              "recommendedCpus": 2,
+              "notes": "The older stable release, worth picking when something needs its package versions."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ubuntu",
+      "name": "Ubuntu Server",
+      "tagline": "Long-term support releases with five years of updates.",
+      "homepage": "https://ubuntu.com/server",
+      "releases": [
+        {
+          "id": "24.04",
+          "name": "24.04 LTS",
+          "note": "Supported until 2029",
+          "editions": [
+            {
+              "id": "ubuntu-24.04-cloud",
+              "edition": "Cloud image",
+              "arch": "aarch64",
+              "url": "https://cloud-images.ubuntu.com/releases/24.04/release/ubuntu-24.04-server-cloudimg-arm64.img",
+              "downloadBytes": 618370560,
+              "installedBytes": 3758096384,
+              "bootStyle": "cloud_image",
+              "diskFormat": "qcow2",
+              "checksum": {
+                "algorithm": "sha256",
+                "value": "4a281a921b8d7db952895ab619736f10efe9f63e111fa5b5779ed18f023818aa"
+              },
+              "defaultUser": "ubuntu",
+              "recommendedRamMb": 2048,
+              "recommendedDiskGb": 20,
+              "recommendedCpus": 2,
+              "notes": "Despite the .img extension this is a qcow2 file. MazeVM generates a cloud-init seed so the ubuntu account has a password you choose."
+            }
+          ]
+        },
+        {
+          "id": "22.04",
+          "name": "22.04 LTS",
+          "note": "Supported until 2027",
+          "editions": [
+            {
+              "id": "ubuntu-22.04-cloud",
+              "edition": "Cloud image",
+              "arch": "aarch64",
+              "url": "https://cloud-images.ubuntu.com/releases/22.04/release/ubuntu-22.04-server-cloudimg-arm64.img",
+              "downloadBytes": 703594496,
+              "installedBytes": 3758096384,
+              "bootStyle": "cloud_image",
+              "diskFormat": "qcow2",
+              "checksum": {
+                "algorithm": "sha256",
+                "value": "b17d9ac9b6249ab30f8c95630acdab3b7a51d76050229ab0ce6c013e303f5ccd"
+              },
+              "defaultUser": "ubuntu",
+              "recommendedRamMb": 2048,
+              "recommendedDiskGb": 20,
+              "recommendedCpus": 2,
+              "notes": "The older LTS, still widely targeted by third-party software."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alpine",
+      "name": "Alpine Linux",
+      "tagline": "Ninety megabytes to a root shell. The fastest way to check the emulator works.",
+      "homepage": "https://alpinelinux.org/",
+      "releases": [
+        {
+          "id": "3.24.1",
+          "name": "3.24.1",
+          "note": "Latest stable",
+          "editions": [
+            {
+              "id": "alpine-3.24.1-virt",
+              "edition": "Virt",
+              "arch": "aarch64",
+              "url": "https://dl-cdn.alpinelinux.org/alpine/latest-stable/releases/aarch64/alpine-virt-3.24.1-aarch64.iso",
+              "downloadBytes": 92743680,
+              "installedBytes": 2147483648,
+              "bootStyle": "live_iso",
+              "checksum": {
+                "algorithm": "sha256",
+                "value": "c81699152db11d2a6dbb7d75348d632fcf5811eff414d7e71876a8bb6d48bc02"
+              },
+              "defaultUser": "root",
+              "recommendedRamMb": 1024,
+              "recommendedDiskGb": 8,
+              "recommendedCpus": 2,
+              "notes": "Trimmed for virtual machines and boots to a root shell in seconds. Log in as root with no password, then run setup-alpine to install it onto the virtual disk."
+            },
+            {
+              "id": "alpine-3.24.1-standard",
+              "edition": "Standard",
+              "arch": "aarch64",
+              "url": "https://dl-cdn.alpinelinux.org/alpine/latest-stable/releases/aarch64/alpine-standard-3.24.1-aarch64.iso",
+              "downloadBytes": 393361408,
+              "installedBytes": 4294967296,
+              "bootStyle": "live_iso",
+              "checksum": {
+                "algorithm": "sha256",
+                "value": "95eba9066d7920fe703dd62b8b8e7f38c45eba0bad225dbe2ccfb5b76cf5356d"
+              },
+              "defaultUser": "root",
+              "recommendedRamMb": 1024,
+              "recommendedDiskGb": 8,
+              "recommendedCpus": 2,
+              "notes": "Carries firmware and extra drivers the virt image leaves out. Only worth the extra size if the virt image is missing something you need."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

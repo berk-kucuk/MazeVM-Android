@@ -1,0 +1,24 @@
+*.iml
+.gradle/
+local.properties
+
+# Release signing. Never commit either of these.
+keystore.properties
+*.jks
+*.keystore
+.idea/
+.DS_Store
+build/
+captures/
+.externalNativeBuild
+.cxx
+*.apk
+*.aab
+dist/
+
+# QEMU build artifacts produced by tools/build-qemu.sh
+tools/build/
+tools/build.log
+tools/src/
+app/src/main/jniLibs/*/*.so
+app/src/main/assets/qemu-data/

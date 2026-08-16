@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!--
+      Everything is HTTPS by default. Arch Linux ARM is the one exception: its
+      distribution host serves a certificate that does not match its own hostname, and
+      it redirects to plain-HTTP mirrors, so the download is blocked outright without
+      this. The catalog entry carries an MD5 published by the same project, which is
+      what integrity rests on for that image.
+    -->
+    <base-config cleartextTrafficPermitted="false" />
+
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">archlinuxarm.org</domain>
+    </domain-config>
+</network-security-config>

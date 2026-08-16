@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">MazeVM</string>
+
+    <!-- Navigation -->
+    <string name="nav_machines">Machines</string>
+    <string name="nav_images">Images</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Generic actions -->
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_close">Close</string>
+    <string name="action_back">Back</string>
+    <string name="action_retry">Retry</string>
+    <string name="action_ok">OK</string>
+    <string name="action_copy">Copy</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_clone">Duplicate</string>
+    <string name="action_dismiss">Dismiss</string>
+    <string name="action_continue">Continue</string>
+
+    <!-- Machines list -->
+    <string name="machines_title">Virtual machines</string>
+    <string name="machines_empty_title">No machines yet</string>
+    <string name="machines_empty_body">Create a virtual machine, or pick a distribution from the Images tab to download one.</string>
+    <string name="machines_new">New machine</string>
+    <string name="machines_browse_images">Browse distributions</string>
+    <string name="machine_start">Start</string>
+    <string name="machine_stop">Stop</string>
+    <string name="machine_force_stop">Force stop</string>
+    <string name="machine_open_console">Open console</string>
+    <string name="machine_delete_title">Delete machine?</string>
+    <string name="machine_delete_body">“%1$s” and its virtual disks will be permanently removed. Downloaded distribution images are kept.</string>
+    <string name="machine_state_stopped">Stopped</string>
+    <string name="machine_state_starting">Starting</string>
+    <string name="machine_state_running">Running</string>
+    <string name="machine_state_stopping">Stopping</string>
+    <string name="machine_state_failed">Failed</string>
+    <string name="machine_summary">%1$s · %2$d vCPU · %3$s RAM</string>
+    <string name="machine_uptime">Up %1$s</string>
+
+    <!-- Machine editor -->
+    <string name="editor_new_title">New machine</string>
+    <string name="editor_edit_title">Edit machine</string>
+    <string name="editor_section_general">General</string>
+    <string name="editor_section_hardware">Hardware</string>
+    <string name="editor_section_storage">Storage</string>
+    <string name="editor_section_display">Display</string>
+    <string name="editor_section_network">Network</string>
+    <string name="editor_section_advanced">Advanced</string>
+
+    <string name="editor_name">Name</string>
+    <string name="editor_name_hint">e.g. Kali ARM64</string>
+    <string name="editor_arch">Architecture</string>
+    <string name="editor_machine_type">Machine type</string>
+    <string name="editor_cpu_model">CPU model</string>
+    <string name="editor_cpu_count">Processor cores</string>
+    <string name="editor_ram">Memory</string>
+    <string name="editor_ram_warning">More than half of this device\'s RAM is assigned. The system may kill the VM under memory pressure.</string>
+
+    <string name="editor_disk">Primary disk</string>
+    <string name="editor_disk_none">None</string>
+    <string name="editor_disk_create">Create disk image</string>
+    <string name="editor_disk_size">Disk size</string>
+    <string name="editor_cdrom">Boot media (CD/ISO)</string>
+    <string name="editor_cdrom_none">None</string>
+    <string name="editor_kernel">External kernel</string>
+    <string name="editor_initrd">Initial ramdisk</string>
+    <string name="editor_append">Kernel command line</string>
+    <string name="editor_uefi">Boot with UEFI firmware</string>
+    <string name="editor_uefi_desc">Required by most arm64 cloud images.</string>
+
+    <string name="editor_display_mode">Display mode</string>
+    <string name="editor_display_serial">Serial console only</string>
+    <string name="editor_display_vnc">Graphical (VNC)</string>
+    <string name="editor_display_both">Serial console + graphical</string>
+    <string name="editor_vga">Graphics adapter</string>
+    <string name="editor_resolution">Resolution</string>
+
+    <string name="editor_network_enabled">Enable networking</string>
+    <string name="editor_network_desc">User-mode networking (SLIRP). The VM reaches the internet through the app; no root needed.</string>
+    <string name="editor_port_forwards">Port forwarding</string>
+    <string name="editor_port_forward_add">Add rule</string>
+    <string name="editor_port_forward_host">Device port</string>
+    <string name="editor_port_forward_guest">VM port</string>
+    <string name="editor_port_forward_empty">No rules. Add one to reach a service inside the VM, e.g. 2222 → 22 for SSH.</string>
+
+    <string name="editor_extra_args">Extra QEMU arguments</string>
+    <string name="editor_extra_args_hint">-device virtio-rng-pci …</string>
+    <string name="editor_snapshot">Discard disk writes on shutdown</string>
+    <string name="editor_snapshot_desc">Runs the disk in snapshot mode. Nothing is written back.</string>
+
+    <string name="editor_error_name_required">Enter a name</string>
+    <string name="editor_error_no_boot_media">Attach a disk, a boot image, or a kernel</string>
+
+    <!-- Disk creation -->
+    <string name="disk_create_title">Create disk image</string>
+    <string name="disk_create_name">File name</string>
+    <string name="disk_create_size">Size</string>
+    <string name="disk_create_format">Format</string>
+    <string name="disk_creating">Creating disk image…</string>
+    <string name="disk_created">Disk image created</string>
+
+    <!-- Image catalog -->
+    <string name="catalog_title">Distributions</string>
+    <string name="catalog_subtitle">ARM64 images that boot under QEMU</string>
+    <string name="catalog_tab_available">Available</string>
+    <string name="catalog_tab_downloaded">On device</string>
+    <string name="catalog_refresh">Refresh catalog</string>
+    <string name="catalog_refreshing">Refreshing…</string>
+    <string name="catalog_refresh_failed">Could not refresh the catalog. Showing the bundled list.</string>
+    <string name="catalog_download">Download</string>
+    <string name="catalog_downloading">Downloading</string>
+    <string name="catalog_extracting">Extracting</string>
+    <string name="catalog_verifying">Verifying</string>
+    <string name="catalog_downloaded">Downloaded</string>
+    <string name="catalog_create_vm">Create machine</string>
+    <string name="catalog_open_site">Project website</string>
+    <string name="catalog_empty_downloaded">Nothing downloaded yet.</string>
+    <string name="catalog_size">Download %1$s · %2$s on disk</string>
+    <string name="catalog_credentials">Default login: %1$s / %2$s</string>
+    <string name="catalog_no_credentials">This image asks you to create a user on first boot.</string>
+    <string name="catalog_needs_uefi">Needs UEFI</string>
+    <string name="catalog_headless">Console only</string>
+    <string name="catalog_desktop">Desktop</string>
+
+    <!-- Picker -->
+    <string name="catalog_choose_release">Which release?</string>
+    <string name="catalog_choose_desktop">Which desktop?</string>
+    <string name="catalog_choose_edition">Which edition?</string>
+    <string name="catalog_desktop_all">All</string>
+    <string name="catalog_release_count">%1$d releases</string>
+    <string name="catalog_desktop_count">%1$d desktops</string>
+    <string name="catalog_on_device_count">%1$d on device</string>
+    <string name="catalog_needs_live_installer">This one installs from a live system. Download Alpine as well, or the machine will boot to an empty disk.</string>
+
+    <!-- Docker Hub -->
+    <string name="hub_tab_distros">Distributions</string>
+    <string name="hub_tab_hub">Docker Hub</string>
+    <string name="hub_search_hint">Search Docker Hub</string>
+    <string name="hub_official">Official</string>
+    <string name="hub_choose_tag">Which tag?</string>
+    <string name="hub_no_arm64">This repository publishes no ARM64 build, so it cannot run on this device.</string>
+    <string name="hub_pull">Pull</string>
+    <string name="hub_name_container">Name the container</string>
+    <string name="hub_resolving">Resolving the manifest…</string>
+    <string name="hub_pulling">Layer %1$d of %2$d · %3$s of %4$s</string>
+    <string name="hub_extracting">Extracting layer %1$d of %2$d</string>
+    <string name="hub_runtime_missing">The container runtime is missing from this build. Run tools/build-container-runtime.sh and reinstall.</string>
+    <string name="container_start">Start</string>
+    <string name="container_shell">Shell</string>
+    <string name="container_delete_body">“%1$s” and its filesystem will be removed.</string>
+    <string name="instance_container">Container</string>
+    <string name="instance_machine">Machine</string>
+
+    <string name="field_user">User</string>
+    <string name="field_password">Password</string>
+
+    <!-- Downloads -->
+    <string name="downloads_title">Downloads</string>
+    <string name="downloads_empty">No active downloads.</string>
+    <string name="download_pause">Pause</string>
+    <string name="download_resume">Resume</string>
+    <string name="download_cancel">Cancel</string>
+    <string name="download_progress">%1$s of %2$s · %3$s/s</string>
+    <string name="download_queued">Queued</string>
+    <string name="download_paused">Paused</string>
+    <string name="download_failed">Download failed: %1$s</string>
+    <string name="download_checksum_mismatch">Checksum does not match. The file was discarded.</string>
+    <string name="download_notification_channel">Image downloads</string>
+    <string name="download_delete_title">Delete image?</string>
+    <string name="download_delete_body">“%1$s” will be removed from this device. Machines using it will no longer boot.</string>
+
+    <!-- Console -->
+    <string name="console_title">Console</string>
+    <string name="console_tab_serial">Serial</string>
+    <string name="console_tab_display">Display</string>
+    <string name="console_tab_log">QEMU log</string>
+    <string name="console_connecting">Connecting to the virtual display…</string>
+    <string name="console_disconnected">Display disconnected</string>
+    <string name="console_send_ctrl_alt_del">Send Ctrl+Alt+Del</string>
+    <string name="console_keyboard">Keyboard</string>
+    <string name="console_scale_fit">Fit to screen</string>
+    <string name="console_scale_actual">Actual size</string>
+    <string name="console_touch_mode">Touch mode</string>
+    <string name="console_touch_direct">Direct touch</string>
+    <string name="console_touch_trackpad">Trackpad</string>
+    <string name="console_log_empty">No output yet.</string>
+    <string name="console_copy_log">Copy log</string>
+    <string name="console_log_copied">Log copied to clipboard</string>
+    <string name="console_not_running">This machine is not running.</string>
+    <string name="console_fullscreen">Full screen</string>
+    <string name="console_show_controls">Show controls</string>
+
+    <!-- Setup / runtime -->
+    <string name="setup_title">QEMU runtime</string>
+    <string name="setup_missing_title">QEMU runtime is missing</string>
+    <string name="setup_missing_body">This build does not contain the QEMU binaries. Build them with tools/build-qemu.sh and reinstall the app.</string>
+    <string name="setup_ready">QEMU %1$s is ready</string>
+    <string name="setup_preparing">Preparing firmware files…</string>
+    <string name="setup_unsupported_abi">MazeVM needs a 64-bit ARM device. This one reports %1$s.</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_section_appearance">Appearance</string>
+    <string name="settings_section_language">Language</string>
+    <string name="settings_section_storage">Storage</string>
+    <string name="settings_section_defaults">Defaults</string>
+    <string name="settings_section_about">About</string>
+
+    <string name="settings_theme">Theme</string>
+    <string name="settings_theme_oled">OLED black</string>
+    <string name="settings_theme_oled_desc">True black surfaces. Saves power on OLED panels.</string>
+    <string name="settings_theme_dark">Dark grey</string>
+    <string name="settings_accent">Accent colour</string>
+
+    <string name="settings_language">App language</string>
+    <string name="settings_language_english">English</string>
+    <string name="settings_language_turkish">Türkçe</string>
+    <string name="settings_language_system">Follow system</string>
+
+    <string name="settings_storage_used">%1$s used by images and disks</string>
+    <string name="settings_storage_free">%1$s free on this device</string>
+    <string name="settings_storage_manage">Manage stored files</string>
+
+    <string name="settings_default_cpus">Default cores</string>
+    <string name="settings_default_ram">Default memory</string>
+    <string name="settings_keep_awake">Keep the screen on in the console</string>
+    <string name="settings_background">Keep running in the background</string>
+    <string name="settings_background_desc">Android may still freeze a machine when the screen is off. Exempt MazeVM from battery optimisation so long installs survive.</string>
+    <string name="settings_background_granted">Exempt from battery optimisation. Machines keep running with the screen off.</string>
+    <string name="settings_background_action">Allow</string>
+    <string name="settings_wifi_only">Download over Wi-Fi only</string>
+
+    <string name="settings_version">Version %1$s</string>
+    <string name="settings_qemu_version">QEMU %1$s</string>
+    <string name="settings_licenses">Open source licenses</string>
+
+    <!-- Errors and notices -->
+    <string name="error_generic">Something went wrong: %1$s</string>
+    <string name="error_no_kvm">No hardware acceleration is available on Android, so the VM runs under TCG emulation. Expect slow boots.</string>
+    <string name="error_out_of_space">Not enough free space. %1$s more is needed.</string>
+    <string name="error_qemu_exited">QEMU exited with code %1$d.</string>
+    <string name="notice_first_boot">The first boot can take several minutes under emulation.</string>
+
+    <!-- Notifications -->
+    <string name="notif_vm_channel">Running machines</string>
+    <string name="notif_vm_running">%1$s is running</string>
+    <string name="notif_vm_action_stop">Stop</string>
+    <string name="notif_vm_action_open">Open</string>
+    <string name="notif_download_running">Downloading %1$s</string>
+
+    <!-- Units -->
+    <string name="unit_mib">MiB</string>
+    <string name="unit_gib">GiB</string>
+    <string name="unit_cores">%1$d cores</string>
+</resources>

@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Gezinme -->
+    <string name="nav_machines">Makineler</string>
+    <string name="nav_images">İmajlar</string>
+    <string name="nav_settings">Ayarlar</string>
+
+    <!-- Genel eylemler -->
+    <string name="action_save">Kaydet</string>
+    <string name="action_cancel">Vazgeç</string>
+    <string name="action_delete">Sil</string>
+    <string name="action_close">Kapat</string>
+    <string name="action_back">Geri</string>
+    <string name="action_retry">Yeniden dene</string>
+    <string name="action_ok">Tamam</string>
+    <string name="action_copy">Kopyala</string>
+    <string name="action_edit">Düzenle</string>
+    <string name="action_clone">Çoğalt</string>
+    <string name="action_dismiss">Kapat</string>
+    <string name="action_continue">Devam et</string>
+
+    <!-- Makine listesi -->
+    <string name="machines_title">Sanal makineler</string>
+    <string name="machines_empty_title">Henüz makine yok</string>
+    <string name="machines_empty_body">Bir sanal makine oluşturun ya da İmajlar sekmesinden bir dağıtım indirin.</string>
+    <string name="machines_new">Yeni makine</string>
+    <string name="machines_browse_images">Dağıtımlara göz at</string>
+    <string name="machine_start">Başlat</string>
+    <string name="machine_stop">Durdur</string>
+    <string name="machine_force_stop">Zorla durdur</string>
+    <string name="machine_open_console">Konsolu aç</string>
+    <string name="machine_delete_title">Makine silinsin mi?</string>
+    <string name="machine_delete_body">“%1$s” ve sanal diskleri kalıcı olarak silinecek. İndirilen dağıtım imajları korunur.</string>
+    <string name="machine_state_stopped">Durduruldu</string>
+    <string name="machine_state_starting">Başlatılıyor</string>
+    <string name="machine_state_running">Çalışıyor</string>
+    <string name="machine_state_stopping">Durduruluyor</string>
+    <string name="machine_state_failed">Başarısız</string>
+    <string name="machine_summary">%1$s · %2$d vCPU · %3$s RAM</string>
+    <string name="machine_uptime">%1$s açık</string>
+
+    <!-- Makine düzenleyici -->
+    <string name="editor_new_title">Yeni makine</string>
+    <string name="editor_edit_title">Makineyi düzenle</string>
+    <string name="editor_section_general">Genel</string>
+    <string name="editor_section_hardware">Donanım</string>
+    <string name="editor_section_storage">Depolama</string>
+    <string name="editor_section_display">Görüntü</string>
+    <string name="editor_section_network">Ağ</string>
+    <string name="editor_section_advanced">Gelişmiş</string>
+
+    <string name="editor_name">Ad</string>
+    <string name="editor_name_hint">örn. Kali ARM64</string>
+    <string name="editor_arch">Mimari</string>
+    <string name="editor_machine_type">Makine türü</string>
+    <string name="editor_cpu_model">İşlemci modeli</string>
+    <string name="editor_cpu_count">İşlemci çekirdeği</string>
+    <string name="editor_ram">Bellek</string>
+    <string name="editor_ram_warning">Cihazın belleğinin yarısından fazlası ayrıldı. Bellek baskısı altında sistem sanal makineyi sonlandırabilir.</string>
+
+    <string name="editor_disk">Birincil disk</string>
+    <string name="editor_disk_none">Yok</string>
+    <string name="editor_disk_create">Disk imajı oluştur</string>
+    <string name="editor_disk_size">Disk boyutu</string>
+    <string name="editor_cdrom">Önyükleme ortamı (CD/ISO)</string>
+    <string name="editor_cdrom_none">Yok</string>
+    <string name="editor_kernel">Harici çekirdek</string>
+    <string name="editor_initrd">Başlangıç bellek diski</string>
+    <string name="editor_append">Çekirdek komut satırı</string>
+    <string name="editor_uefi">UEFI donanım yazılımıyla başlat</string>
+    <string name="editor_uefi_desc">Çoğu arm64 bulut imajı bunu gerektirir.</string>
+
+    <string name="editor_display_mode">Görüntü kipi</string>
+    <string name="editor_display_serial">Yalnızca seri konsol</string>
+    <string name="editor_display_vnc">Grafik (VNC)</string>
+    <string name="editor_display_both">Seri konsol + grafik</string>
+    <string name="editor_vga">Grafik bağdaştırıcısı</string>
+    <string name="editor_resolution">Çözünürlük</string>
+
+    <string name="editor_network_enabled">Ağı etkinleştir</string>
+    <string name="editor_network_desc">Kullanıcı kipi ağ (SLIRP). Sanal makine internete uygulama üzerinden çıkar; root gerekmez.</string>
+    <string name="editor_port_forwards">Bağlantı noktası yönlendirme</string>
+    <string name="editor_port_forward_add">Kural ekle</string>
+    <string name="editor_port_forward_host">Cihaz portu</string>
+    <string name="editor_port_forward_guest">Sanal makine portu</string>
+    <string name="editor_port_forward_empty">Kural yok. Sanal makinedeki bir hizmete erişmek için ekleyin, örn. SSH için 2222 → 22.</string>
+
+    <string name="editor_extra_args">Ek QEMU değiştirgeleri</string>
+    <string name="editor_extra_args_hint">-device virtio-rng-pci …</string>
+    <string name="editor_snapshot">Kapanışta disk yazmalarını at</string>
+    <string name="editor_snapshot_desc">Diski anlık görüntü kipinde çalıştırır. Hiçbir şey geri yazılmaz.</string>
+
+    <string name="editor_error_name_required">Bir ad girin</string>
+    <string name="editor_error_no_boot_media">Bir disk, önyükleme imajı ya da çekirdek ekleyin</string>
+
+    <!-- Disk oluşturma -->
+    <string name="disk_create_title">Disk imajı oluştur</string>
+    <string name="disk_create_name">Dosya adı</string>
+    <string name="disk_create_size">Boyut</string>
+    <string name="disk_create_format">Biçim</string>
+    <string name="disk_creating">Disk imajı oluşturuluyor…</string>
+    <string name="disk_created">Disk imajı oluşturuldu</string>
+
+    <!-- İmaj kataloğu -->
+    <string name="catalog_title">Dağıtımlar</string>
+    <string name="catalog_subtitle">QEMU altında açılan ARM64 imajları</string>
+    <string name="catalog_tab_available">Kullanılabilir</string>
+    <string name="catalog_tab_downloaded">Cihazda</string>
+    <string name="catalog_refresh">Kataloğu yenile</string>
+    <string name="catalog_refreshing">Yenileniyor…</string>
+    <string name="catalog_refresh_failed">Katalog yenilenemedi. Uygulamayla gelen liste gösteriliyor.</string>
+    <string name="catalog_download">İndir</string>
+    <string name="catalog_downloading">İndiriliyor</string>
+    <string name="catalog_extracting">Ayıklanıyor</string>
+    <string name="catalog_verifying">Doğrulanıyor</string>
+    <string name="catalog_downloaded">İndirildi</string>
+    <string name="catalog_create_vm">Makine oluştur</string>
+    <string name="catalog_open_site">Proje sitesi</string>
+    <string name="catalog_empty_downloaded">Henüz bir şey indirilmedi.</string>
+    <string name="catalog_size">%1$s indirme · diskte %2$s</string>
+    <string name="catalog_credentials">Öntanımlı giriş: %1$s / %2$s</string>
+    <string name="catalog_no_credentials">Bu imaj ilk açılışta kullanıcı oluşturmanızı ister.</string>
+    <string name="catalog_needs_uefi">UEFI gerekir</string>
+    <string name="catalog_headless">Yalnızca konsol</string>
+    <string name="catalog_desktop">Masaüstü</string>
+
+    <!-- Seçici -->
+    <string name="catalog_choose_release">Hangi sürüm?</string>
+    <string name="catalog_choose_desktop">Hangi masaüstü?</string>
+    <string name="catalog_choose_edition">Hangi yayın?</string>
+    <string name="catalog_desktop_all">Tümü</string>
+    <string name="catalog_release_count">%1$d sürüm</string>
+    <string name="catalog_desktop_count">%1$d masaüstü</string>
+    <string name="catalog_on_device_count">cihazda %1$d</string>
+    <string name="catalog_needs_live_installer">Bu, canlı bir sistemden kurulur. Alpine\'i de indirin, yoksa makine boş bir diske açılır.</string>
+
+    <!-- Docker Hub -->
+    <string name="hub_tab_distros">Dağıtımlar</string>
+    <string name="hub_tab_hub">Docker Hub</string>
+    <string name="hub_search_hint">Docker Hub\'da ara</string>
+    <string name="hub_official">Resmî</string>
+    <string name="hub_choose_tag">Hangi etiket?</string>
+    <string name="hub_no_arm64">Bu depo ARM64 sürümü yayınlamıyor, bu cihazda çalıştırılamaz.</string>
+    <string name="hub_pull">Çek</string>
+    <string name="hub_name_container">Konteynere ad verin</string>
+    <string name="hub_resolving">Manifest çözümleniyor…</string>
+    <string name="hub_pulling">Katman %1$d / %2$d · %4$s içinden %3$s</string>
+    <string name="hub_extracting">Katman %1$d / %2$d ayıklanıyor</string>
+    <string name="hub_runtime_missing">Konteyner çalışma zamanı bu sürümde yok. tools/build-container-runtime.sh çalıştırıp yeniden kurun.</string>
+    <string name="container_start">Başlat</string>
+    <string name="container_shell">Kabuk</string>
+    <string name="container_delete_body">“%1$s” ve dosya sistemi kaldırılacak.</string>
+    <string name="instance_container">Konteyner</string>
+    <string name="instance_machine">Makine</string>
+
+    <string name="field_user">Kullanıcı</string>
+    <string name="field_password">Parola</string>
+
+    <!-- İndirmeler -->
+    <string name="downloads_title">İndirmeler</string>
+    <string name="downloads_empty">Etkin indirme yok.</string>
+    <string name="download_pause">Duraklat</string>
+    <string name="download_resume">Sürdür</string>
+    <string name="download_cancel">İptal</string>
+    <string name="download_progress">%2$s içinden %1$s · %3$s/sn</string>
+    <string name="download_queued">Sırada</string>
+    <string name="download_paused">Duraklatıldı</string>
+    <string name="download_failed">İndirme başarısız: %1$s</string>
+    <string name="download_checksum_mismatch">Sağlama toplamı uyuşmuyor. Dosya atıldı.</string>
+    <string name="download_notification_channel">İmaj indirmeleri</string>
+    <string name="download_delete_title">İmaj silinsin mi?</string>
+    <string name="download_delete_body">“%1$s” bu cihazdan kaldırılacak. Onu kullanan makineler artık açılmayacak.</string>
+
+    <!-- Konsol -->
+    <string name="console_title">Konsol</string>
+    <string name="console_tab_serial">Seri</string>
+    <string name="console_tab_display">Ekran</string>
+    <string name="console_tab_log">QEMU günlüğü</string>
+    <string name="console_connecting">Sanal ekrana bağlanılıyor…</string>
+    <string name="console_disconnected">Ekran bağlantısı kesildi</string>
+    <string name="console_send_ctrl_alt_del">Ctrl+Alt+Del gönder</string>
+    <string name="console_keyboard">Klavye</string>
+    <string name="console_scale_fit">Ekrana sığdır</string>
+    <string name="console_scale_actual">Gerçek boyut</string>
+    <string name="console_touch_mode">Dokunma kipi</string>
+    <string name="console_touch_direct">Doğrudan dokunma</string>
+    <string name="console_touch_trackpad">İzleme yüzeyi</string>
+    <string name="console_log_empty">Henüz çıktı yok.</string>
+    <string name="console_copy_log">Günlüğü kopyala</string>
+    <string name="console_log_copied">Günlük panoya kopyalandı</string>
+    <string name="console_not_running">Bu makine çalışmıyor.</string>
+    <string name="console_fullscreen">Tam ekran</string>
+    <string name="console_show_controls">Denetimleri göster</string>
+
+    <!-- Kurulum / çalışma zamanı -->
+    <string name="setup_title">QEMU çalışma zamanı</string>
+    <string name="setup_missing_title">QEMU çalışma zamanı eksik</string>
+    <string name="setup_missing_body">Bu sürüm QEMU ikili dosyalarını içermiyor. tools/build-qemu.sh ile derleyip uygulamayı yeniden kurun.</string>
+    <string name="setup_ready">QEMU %1$s hazır</string>
+    <string name="setup_preparing">Donanım yazılımı dosyaları hazırlanıyor…</string>
+    <string name="setup_unsupported_abi">MazeVM 64 bit ARM cihaz gerektirir. Bu cihaz %1$s bildiriyor.</string>
+
+    <!-- Ayarlar -->
+    <string name="settings_title">Ayarlar</string>
+    <string name="settings_section_appearance">Görünüm</string>
+    <string name="settings_section_language">Dil</string>
+    <string name="settings_section_storage">Depolama</string>
+    <string name="settings_section_defaults">Öntanımlılar</string>
+    <string name="settings_section_about">Hakkında</string>
+
+    <string name="settings_theme">Tema</string>
+    <string name="settings_theme_oled">OLED siyah</string>
+    <string name="settings_theme_oled_desc">Tam siyah yüzeyler. OLED ekranlarda güç tasarrufu sağlar.</string>
+    <string name="settings_theme_dark">Koyu gri</string>
+    <string name="settings_accent">Vurgu rengi</string>
+
+    <string name="settings_language">Uygulama dili</string>
+    <string name="settings_language_english">English</string>
+    <string name="settings_language_turkish">Türkçe</string>
+    <string name="settings_language_system">Sistemi izle</string>
+
+    <string name="settings_storage_used">İmajlar ve diskler %1$s kullanıyor</string>
+    <string name="settings_storage_free">Bu cihazda %1$s boş</string>
+    <string name="settings_storage_manage">Saklanan dosyaları yönet</string>
+
+    <string name="settings_default_cpus">Öntanımlı çekirdek</string>
+    <string name="settings_default_ram">Öntanımlı bellek</string>
+    <string name="settings_keep_awake">Konsolda ekranı açık tut</string>
+    <string name="settings_background">Arka planda çalışmaya devam et</string>
+    <string name="settings_background_desc">Ekran kapalıyken Android makineyi yine de dondurabilir. Uzun kurulumların yarıda kalmaması için MazeVM\'i pil optimizasyonundan muaf tutun.</string>
+    <string name="settings_background_granted">Pil optimizasyonundan muaf. Makineler ekran kapalıyken çalışmaya devam eder.</string>
+    <string name="settings_background_action">İzin ver</string>
+    <string name="settings_wifi_only">Yalnızca Wi-Fi üzerinden indir</string>
+
+    <string name="settings_version">Sürüm %1$s</string>
+    <string name="settings_qemu_version">QEMU %1$s</string>
+    <string name="settings_licenses">Açık kaynak lisansları</string>
+
+    <!-- Hatalar ve uyarılar -->
+    <string name="error_generic">Bir şeyler ters gitti: %1$s</string>
+    <string name="error_no_kvm">Android\'de donanım hızlandırma yok; sanal makine TCG öykünmesiyle çalışır. Açılışlar yavaş olacaktır.</string>
+    <string name="error_out_of_space">Yeterli boş alan yok. %1$s daha gerekiyor.</string>
+    <string name="error_qemu_exited">QEMU %1$d koduyla sonlandı.</string>
+    <string name="notice_first_boot">Öykünme altında ilk açılış birkaç dakika sürebilir.</string>
+
+    <!-- Bildirimler -->
+    <string name="notif_vm_channel">Çalışan makineler</string>
+    <string name="notif_vm_running">%1$s çalışıyor</string>
+    <string name="notif_vm_action_stop">Durdur</string>
+    <string name="notif_vm_action_open">Aç</string>
+    <string name="notif_download_running">%1$s indiriliyor</string>
+
+    <!-- Birimler -->
+    <string name="unit_mib">MiB</string>
+    <string name="unit_gib">GiB</string>
+    <string name="unit_cores">%1$d çekirdek</string>
+</resources>
