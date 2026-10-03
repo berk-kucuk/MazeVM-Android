@@ -222,3 +222,9 @@ not a one-file change.
   installation.
 - Suspend and resume of a running machine are not wired up yet, though the QMP client
   already has the commands.
+
+## License
+
+Copyright © 2026 Berk Küçük
+
+Released under the GNU General Public License v3.0 — see [LICENSE](LICENSE).
