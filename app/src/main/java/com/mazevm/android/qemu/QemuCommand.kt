@@ -120,8 +120,12 @@ object QemuCommand {
 
     private fun networkArgs(vm: VmConfig): List<String> {
         if (!vm.networkEnabled) return listOf("-nic", "none")
+        // Bound to 127.0.0.1. An empty host address makes QEMU listen on every
+        // interface, which put the guest's SSH (default 2222 -> 22, password
+        // login, NOPASSWD sudo on seeded cloud images) on the Wi-Fi for anyone
+        // nearby. Forwards are for apps on this phone.
         val forwards = vm.portForwards.joinToString("") {
-            ",hostfwd=${it.protocol}::${it.hostPort}-:${it.guestPort}"
+            ",hostfwd=${it.protocol}:127.0.0.1:${it.hostPort}-:${it.guestPort}"
         }
         return listOf(
             // User-mode networking needs no privileges, which is the only option here.

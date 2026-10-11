@@ -37,7 +37,7 @@ class ImageLibrary(private val storage: Storage) {
     }
 
     suspend fun delete(image: DistroImage) = withContext(Dispatchers.IO) {
-        storage.imagesDir.resolve(image.id).deleteRecursively()
+        storage.imageDir(image.id)?.deleteRecursively()
         _installed.value = _installed.value - image.id
     }
 

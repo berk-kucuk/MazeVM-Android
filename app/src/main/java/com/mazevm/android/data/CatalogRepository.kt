@@ -80,6 +80,12 @@ class CatalogRepository(
                 val body = connection.use { it.inputStream.bufferedReader().readText() }
                 val parsed = json.decodeFromString<Catalog>(body)
                 require(parsed.distros.isNotEmpty()) { "catalog is empty" }
+                // Ids and file names become directories and files under
+                // images/ (and the target of a recursive delete). A refreshed
+                // catalog with anything but plain names is rejected whole.
+                require(parsed.images.all { Storage.isSafeName(it.id) && Storage.isSafeName(it.fileName) }) {
+                    "catalog contains an unsafe image id or file name"
+                }
 
                 storage.catalogCacheFile.writeText(body)
                 if (parsed.updated >= _catalog.value.updated) _catalog.value = parsed

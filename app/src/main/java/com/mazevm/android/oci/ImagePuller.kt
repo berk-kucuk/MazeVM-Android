@@ -2,6 +2,7 @@ package com.mazevm.android.oci
 
 import android.util.Log
 import com.mazevm.android.core.Storage
+import com.mazevm.android.core.deleteRecursivelyNoFollow
 import com.mazevm.android.data.model.ImageConfig
 import com.mazevm.android.data.model.ImageReference
 import com.mazevm.android.data.model.PullState
@@ -101,7 +102,7 @@ class ImagePuller(
         val rootfs = storage.containerRootfs(containerId)
         // A partial rootfs from an interrupted pull would merge badly with a fresh set
         // of layers, so start from nothing.
-        rootfs.deleteRecursively()
+        rootfs.deleteRecursivelyNoFollow()
         rootfs.mkdirs()
 
         var completedBytes = 0L

@@ -1,6 +1,8 @@
 package com.mazevm.android.oci
 
 import android.util.Log
+import com.mazevm.android.core.deleteRecursivelyNoFollow
+import com.mazevm.android.core.isSymlink
 import org.apache.commons.compress.archivers.tar.TarArchiveEntry
 import org.apache.commons.compress.archivers.tar.TarArchiveInputStream
 import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream
@@ -64,6 +66,9 @@ object LayerExtractor {
 
                 when {
                     entry.isDirectory -> {
+                        // A link already at this name would make mkdirs() a
+                        // no-op and applyMode() chmod whatever it points at.
+                        if (target.isSymlink()) java.nio.file.Files.deleteIfExists(target.toPath())
                         target.mkdirs()
                         applyMode(target, entry)
                     }
@@ -75,8 +80,13 @@ object LayerExtractor {
                     }
 
                     entry.isLink -> {
+                        // The link source must be a real file inside the rootfs.
+                        // resolveSafely() only checks the parent, so a source
+                        // that is itself a symlink to /data/... would have had
+                        // copyTo() pull an outside file into the image.
                         val existing = resolveSafely(canonicalRoot, entry.linkName)
-                        if (existing != null && existing.exists()) {
+                            ?.takeIf { !it.isSymlink() && it.isFile }
+                        if (existing != null) {
                             target.parentFile?.mkdirs()
                             target.delete()
                             runCatching { existing.copyTo(target, overwrite = true) }
@@ -128,13 +138,18 @@ object LayerExtractor {
         if (fileName == OPAQUE_MARKER) {
             // Everything the lower layers put in this directory is hidden.
             val target = resolveSafely(root, directory) ?: return true
-            target.listFiles()?.forEach { it.deleteRecursively() }
+            // The directory itself may be a link planted by an earlier entry:
+            // never list (and empty) whatever it points at.
+            if (target.isSymlink()) return true
+            target.listFiles()?.forEach { it.deleteRecursivelyNoFollow() }
             return true
         }
 
         val removed = fileName.removePrefix(WHITEOUT_PREFIX)
         val path = if (directory.isEmpty()) removed else "$directory/$removed"
-        resolveSafely(root, path)?.deleteRecursively()
+        // NoFollow: if the whited-out name is a link (possibly planted by an
+        // earlier entry of this very layer), remove the link, not its target.
+        resolveSafely(root, path)?.deleteRecursivelyNoFollow()
         return true
     }
 
@@ -196,7 +211,7 @@ object LayerExtractor {
             // what makes replacing a dangling link from an earlier layer work. A
             // directory left in the way has to go recursively.
             if (!java.nio.file.Files.deleteIfExists(path)) {
-                if (target.isDirectory) target.deleteRecursively()
+                if (target.isDirectory) target.deleteRecursivelyNoFollow()
             }
 
             java.nio.file.Files.createSymbolicLink(path, java.nio.file.Paths.get(linkName))

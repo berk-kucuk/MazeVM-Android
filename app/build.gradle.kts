@@ -45,8 +45,8 @@ android {
         // sigaltstack coroutine backend it falls back to is unreliable below it.
         minSdk = 28
         targetSdk = 35
-        versionCode = 9
-        versionName = "1.5.0"
+        versionCode = 10
+        versionName = "1.5.1"
 
         // Only English and Turkish are shipped. No other locale is packaged.
         resourceConfigurations += setOf("en", "tr")

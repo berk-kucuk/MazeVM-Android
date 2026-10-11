@@ -2,6 +2,7 @@ package com.mazevm.android.data
 
 import android.util.Log
 import com.mazevm.android.core.Storage
+import com.mazevm.android.core.deleteRecursivelyNoFollow
 import com.mazevm.android.data.model.ContainerConfig
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -53,7 +54,7 @@ class ContainerStore(private val storage: Storage) {
     /** Removes the definition and the extracted root filesystem behind it. */
     suspend fun deleteWithFiles(config: ContainerConfig) = withContext(Dispatchers.IO) {
         mutate { current -> current.filterNot { it.id == config.id } }
-        runCatching { storage.containersDir.resolve(config.id).deleteRecursively() }
+        runCatching { storage.containersDir.resolve(config.id).deleteRecursivelyNoFollow() }
         Unit
     }
 

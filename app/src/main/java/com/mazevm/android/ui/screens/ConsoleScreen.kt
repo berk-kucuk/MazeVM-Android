@@ -377,7 +377,9 @@ private fun SerialTab(process: com.mazevm.android.qemu.QemuProcess) {
     // the revision afterwards is what tells the canvas to repaint.
     LaunchedEffect(process) {
         process.serialOutput.collect { chunk ->
-            synchronized(emulator.lock) { emulator.write(chunk) }
+            // Guest output is untrusted: a parsing bug must cost one chunk,
+            // never the whole app (and every VM it is hosting).
+            synchronized(emulator.lock) { runCatching { emulator.write(chunk) } }
             revision.longValue = emulator.revision
         }
     }

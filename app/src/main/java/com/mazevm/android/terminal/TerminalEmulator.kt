@@ -106,7 +106,13 @@ class TerminalEmulator(
             if (byte and 0xC0 == 0x80) {
                 utf8Accumulator = (utf8Accumulator shl 6) or (byte and 0x3F)
                 utf8Remaining--
-                if (utf8Remaining == 0) consume(utf8Accumulator)
+                if (utf8Remaining == 0) {
+                    // Guest bytes: anything above U+10FFFF or a surrogate is not
+                    // a code point at all, and StringBuilder.appendCodePoint()
+                    // throws on it in the draw pass — which crashed the app.
+                    val cp = utf8Accumulator
+                    consume(if (cp > 0x10FFFF || cp in 0xD800..0xDFFF) 0xFFFD else cp)
+                }
                 return
             }
             // A malformed sequence: drop what we had and reinterpret this byte.
@@ -205,10 +211,13 @@ class TerminalEmulator(
         }
     }
 
+    // Guest-supplied numbers. Unbounded, "ESC[2147483647B" overflowed the row
+    // arithmetic to a negative index (crash) and "ESC[2147483647S" spun 2^31
+    // scroll iterations while holding the emulator lock (hang).
     private fun parameters(): List<Int> =
         parameterBuffer.toString()
             .split(';')
-            .map { part -> part.substringBefore(':').trim().toIntOrNull() ?: 0 }
+            .map { part -> (part.substringBefore(':').trim().toIntOrNull() ?: 0).coerceIn(0, MAX_PARAMETER) }
 
     private fun parameter(index: Int, default: Int): Int =
         parameters().getOrNull(index)?.takeIf { it > 0 } ?: default
@@ -236,8 +245,8 @@ class TerminalEmulator(
             'P' -> deleteCharacters(parameter(0, 1))
             '@' -> insertCharacters(parameter(0, 1))
             'X' -> eraseCharacters(parameter(0, 1))
-            'S' -> repeat(parameter(0, 1)) { scrollUp() }
-            'T' -> repeat(parameter(0, 1)) { scrollDown() }
+            'S' -> repeat(parameter(0, 1).coerceAtMost(rows)) { scrollUp() }
+            'T' -> repeat(parameter(0, 1).coerceAtMost(rows)) { scrollDown() }
             'm' -> applyGraphicRendition(params)
             'r' -> {
                 scrollTop = (parameter(0, 1) - 1).coerceIn(0, rows - 1)
@@ -434,6 +443,9 @@ class TerminalEmulator(
     }
 
     private companion object {
+        /** Upper bound for any CSI parameter (no terminal is this large). */
+        private const val MAX_PARAMETER = 9999
+
         const val TAB_WIDTH = 8
     }
 }
